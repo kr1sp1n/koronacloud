@@ -1,0 +1,36 @@
+{
+  "name": "koronacloud",
+  "version": "0.0.1",
+  "description": "Client for the KORONA.pos API",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "standard && node test/client.js",
+    "drakov": "drakov --config config/drakov.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kr1sp1n/koronacloud.git"
+  },
+  "keywords": [
+    "korona",
+    "pos",
+    "api"
+  ],
+  "author": "kr1sp1n",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kr1sp1n/koronacloud/issues"
+  },
+  "homepage": "https://github.com/kr1sp1n/koronacloud#readme",
+  "dependencies": {
+    "debug": "^2.6.1",
+    "mustache": "^2.3.0",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1",
+    "tv4": "^1.2.7"
+  },
+  "devDependencies": {
+    "drakov": "^1.0.2",
+    "standard": "^8.6.0"
+  }
+}
