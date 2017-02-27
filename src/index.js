@@ -23,6 +23,7 @@ const requestSchema = {
 function handleApiResponse (response) {
   if (!response) return Promise.reject(new Error('No response passed'))
   debug(response.statusCode)
+  debug(response.body)
   // if (response.statusCode !== 200 && response.statusCode !== 204) {
   //   // handle health response not as error
   //   if (response.request.path.match(/health/) !== null) {
@@ -42,8 +43,7 @@ function handleApiResponse (response) {
 }
 
 module.exports = (config) => {
-  config = config || defaultConfig
-
+  config = Object.assign({}, defaultConfig, config)
   mustache = config.mustache || mustache
   Promise = config.Promise || Promise
   rp = config['request-promise'] || rp
@@ -60,9 +60,8 @@ module.exports = (config) => {
     const valid = tv4.validate(options, requestSchema)
     if (!valid) return Promise.reject(tv4.error)
     let uri = `${client.apiEndpoint}${options.path}`
-    options.json = Object.assign({}, { token: client.apiToken }, options.json)
     // Replace variables in uri.
-    uri = mustache.render(uri, options.json)
+    uri = mustache.render(uri, Object.assign({}, options.json, { token: client.apiToken }))
     // Replace unicode encodings.
     uri = uri.replace(/&#x2F;/g, '/')
     options.headers = options.headers || {}

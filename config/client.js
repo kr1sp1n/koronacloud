@@ -2,7 +2,7 @@
 
 module.exports = () => {
   return {
-    apiEndpoint: process.env.API_ENDPOINT || 'https://www.koronacloud.com/web/api/v2',
+    apiEndpoint: process.env.API_ENDPOINT || 'https://www.koronacloud.com/web/api',
     apiToken: process.env.API_TOKEN || '123abc'
   }
 }
