@@ -1,2 +1,5 @@
 # koronacloud
-Client for the KORONA.pos Cloud API
+
+A client for the KORONA.pos Cloud API.
+
+Work in progress.

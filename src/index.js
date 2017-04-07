@@ -24,21 +24,6 @@ function handleApiResponse (response) {
   if (!response) return Promise.reject(new Error('No response passed'))
   debug(response.statusCode)
   debug(response.body)
-  // if (response.statusCode !== 200 && response.statusCode !== 204) {
-  //   // handle health response not as error
-  //   if (response.request.path.match(/health/) !== null) {
-  //     return Promise.resolve(response.body);
-  //   }
-  //   let message;
-  //   if (response.body && response.body.errors && response.body.errors.length > 0) {
-  //     message = response.body.errors[0];
-  //   } else {
-  //     message = `Status ${response.statusCode}`;
-  //   }
-  //   const error = new Error(message);
-  //   error.response = response;
-  //   return Promise.reject(error);
-  // }
   return Promise.resolve(response.body)
 }
 
@@ -65,9 +50,6 @@ module.exports = (config) => {
     // Replace unicode encodings.
     uri = uri.replace(/&#x2F;/g, '/')
     options.headers = options.headers || {}
-    // if (client.token !== undefined || client.token !== null || client.token !== '') {
-    //   options.headers['X-Vault-Token'] = client.token
-    // }
     options.uri = uri
     options.json = options.json || true
     options.simple = options.simple || false

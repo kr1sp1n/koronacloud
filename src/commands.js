@@ -5,9 +5,13 @@ module.exports = () => {
       method: 'GET',
       path: '/v2/{{token}}/products/delete/{{num}}'
     },
-    getProducts: {
+    getProductsByPage: {
       method: 'GET',
       path: '/v2/{{token}}/products/get/page/{{num}}'
+    },
+    getProducts: {
+      method: 'GET',
+      path: '/v1/{{token}}/products/page/{{limit}}'
     },
     getProduct: {
       method: 'GET',
