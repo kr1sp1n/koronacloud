@@ -13,6 +13,10 @@ module.exports = () => {
       method: 'GET',
       path: '/v1/{{token}}/products/page/{{limit}}'
     },
+    getCommodityGroups: {
+      method: 'GET',
+      path: '/v1/{{token}}/commodityGroups/page/{{limit}}'
+    },
     getProduct: {
       method: 'GET',
       path: '/v2/{{token}}/products/get/{{num}}'
